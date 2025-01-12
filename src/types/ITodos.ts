@@ -10,8 +10,3 @@ export type todoState = {
   isLoading: boolean;
   error: string;
 };
-
-export type ICreatePost = {
-  title: string;
-  body: string;
-};

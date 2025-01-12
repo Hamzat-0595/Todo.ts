@@ -1,5 +1,5 @@
 import { deleteTodo } from "src/store/reduser/user/todoAction";
-// import "./DeleteTodo.css";
+import "./DeleteTodo.css";
 import { useAppDispatch } from "src/hooks/hooks";
 import deleteIcon from "src/assets/delete.png";
 
@@ -17,7 +17,7 @@ const DeleteTodo = ({ _id }: DeleteTodoProps) => {
   return (
     <div>
       <button className="deleteBtn" onClick={handleDeleteTodo}>
-        <img src={deleteIcon} />
+        <img className="btn" src={deleteIcon} />
       </button>
     </div>
   );

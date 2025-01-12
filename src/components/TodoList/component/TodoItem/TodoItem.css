@@ -3,14 +3,15 @@
   justify-content: center;
 }
 .wrapper {
+  display: flex;
   background-color: #262626;
-  min-width: Fill (736px) px;
-  min-height: Hug (72px) px;
-  padding: 16px 0px 0px 0px;
+  width: 736px;
+  height: 72px;
   gap: 12px;
-  border-radius: 8px 0px 0px 0px;
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
+  border-radius: 8px;
+  border: 1px solid #0d0d0d;
+  margin-bottom: 12px;
+  padding: 16px 16px 0 19px;
 }
 
 .title {
