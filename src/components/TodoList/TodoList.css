@@ -2,3 +2,27 @@
   display: flex;
   justify-content: center;
 }
+.posts {
+  color: antiquewhite;
+}
+.conterWrapper {
+  width: 736px;
+  height: 19px;
+  display: flex;
+  justify-content: space-between;
+  margin: 64px auto 24px;
+}
+.counterTask {
+  display: flex;
+  color: #4ea8de;
+}
+.count {
+  color: #d9d9d9;
+  background-color: #333333;
+  margin-left: 8px;
+  border-radius: 5px;
+}
+.counterDone {
+  display: flex;
+  color: #4ea8de;
+}

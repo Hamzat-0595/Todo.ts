@@ -1,40 +1,40 @@
-import React, { useEffect, useState } from "react";
-import TodoItem from "./component/TodoItem/TodoItem";
-import axios from "axios";
+import { useEffect } from "react";
 import "./TodoList.css";
+import { useAppDispatch, useAppSelector } from "src/hooks/hooks";
+import { getTodos } from "src/store/reduser/user/todoAction";
+import TodoItem from "./component/TodoItem/TodoItem";
 
-const baseURL = "https://todo-server-taj0.onrender.com/todos";
+const TodoList = () => {
+  const dispatch = useAppDispatch();
+  const { todos, isLoading } = useAppSelector((state) => state.todos);
 
-type Props = {
-  _id: string;
-  title: string;
-  completed: boolean;
-  created_at: string;
-  __v: number;
-};
-
-const TodoList: React.FC = () => {
-  const [posts, setPosts] = useState<Props[] | null>(null);
+  const completedTodos = todos.filter((todo) => todo.completed === true);
 
   useEffect(() => {
-    axios.get(`${baseURL}`).then((response) => {
-      setPosts(response.data);
-      console.log(response);
-    });
+    dispatch(getTodos());
   }, []);
 
-  if (!posts) {
-    return <div className="noData">У вас пока нет добавленных задач!</div>;
+  if (isLoading) {
+    <h1>Loading</h1>;
   }
-
   return (
     <div>
+      <div className="conterWrapper">
+        <div className="counterTask">
+          Всего задач <p className="count">{todos.length}</p>
+        </div>
+        <div className="counterDone">
+          Выполнено
+          <p className="count">
+            {completedTodos.length} из {todos.length}
+          </p>
+        </div>
+      </div>
       <div className="navbar">
-        {posts.map((post) => (
-          <span key={post._id}>{post.title}</span>
+        {todos.map((todo) => (
+          <TodoItem {...todo} />
         ))}
       </div>
-      <TodoItem />
     </div>
   );
 };
